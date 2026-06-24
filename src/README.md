@@ -6,6 +6,8 @@ A super simple FastAPI application that allows students to view and sign up for 
 
 - View all available extracurricular activities
 - Sign up for activities
+- View active announcements
+- Manage announcements (authenticated teachers only)
 
 ## Getting Started
 
@@ -31,6 +33,12 @@ A super simple FastAPI application that allows students to view and sign up for 
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Get all activities with their details and current participant count |
 | POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| POST   | `/activities/{activity_name}/unregister?email=student@mergington.edu` | Remove a student from an activity                               |
+| GET    | `/announcements`                                                  | Get currently active announcements                                  |
+| GET    | `/announcements/manage?teacher_username=mrodriguez`              | Get all announcements for management UI                             |
+| POST   | `/announcements?teacher_username=mrodriguez`                     | Create an announcement                                              |
+| PUT    | `/announcements/{announcement_id}?teacher_username=mrodriguez`   | Update an announcement                                              |
+| DELETE | `/announcements/{announcement_id}?teacher_username=mrodriguez`   | Delete an announcement                                              |
 
 ## Data Model
 
